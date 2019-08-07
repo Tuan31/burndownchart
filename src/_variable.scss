@@ -1,0 +1,27 @@
+//font
+
+@import url('https://fonts.googleapis.com/css?family=Trirong&display=swap');
+
+@font-face {
+    font-family: 'Cinzel';
+    src: url('/font/Cinzel-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+$font-family-trirong: 'Trirong';
+$font-family-cinzel: 'Cinzel';
+
+//color
+
+$color_blue1: #2f5bec;
+$color_gray: #888888;
+$color_gray1: #888585;
+$color_white: #ffffff;
+$color_yellow: #ebc804;
+$color_black1: #050505;
+
+$dashboard_box_shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1);
+$color_shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1);
+
+$border_input: 1px solid #ced4da;

@@ -1,0 +1,56 @@
+{
+  "plugins": [
+    "react"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "module": true,
+      "arrowFunctions": true,
+      "classes": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "rules": {
+    "no-useless-escape": "off",
+    "array-bracket-newline": ["error", "consistent"],
+    "eol-last": ["error", "always"],
+    "no-duplicate-imports": "error",
+    "object-curly-spacing": ["error", "always"],
+    "array-bracket-spacing": ["error", "never"],
+    "no-multi-spaces": "error",
+    "arrow-spacing": "error",
+    "arrow-body-style": ["error", "as-needed"],
+    "react/prop-types": ["warn"],
+    "react/display-name": ["off", { "ignoreTranspilerName": false }],
+    "no-console": ["error", { "allow": ["error"] }],
+    "strict": [
+      "error",
+      "global"
+    ],
+    "curly": "warn",
+    "comma-dangle": ["error", "always-multiline"],
+    "semi": ["error", "always"],
+    "quotes": [2, "single", { "avoidEscape": true }],
+    "jsx-quotes": ["error", "prefer-double"],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "react/sort-comp": [1, {
+      "order": [
+        "static-methods",
+        "lifecycle",
+        "/^on.+$/",
+        "everything-else",
+        "render"
+      ]
+    }]
+  }
+}

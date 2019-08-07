@@ -1,0 +1,23 @@
+@import "../../variable";
+
+.home {
+    text-align: center;
+    font-size: 50px;
+    margin: 50px;
+    font-family: $font-family-trirong;
+    color: $color_blue1;
+    display: flex;
+    justify-content: center;
+    .profile-row {
+        display: flex;
+        justify-content: center;
+        .profile-box {
+                box-shadow: $dashboard_box_shadow;
+                border-radius: 20px;
+                padding: 30px;
+                margin-bottom: 40px;
+                width: 1000px;
+                height: 350px;
+        }
+    }
+}

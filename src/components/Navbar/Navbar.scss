@@ -1,0 +1,70 @@
+@import '../../variable';
+
+
+.topnav {
+    background-color: $color_yellow;
+    height: 62px;
+    .topbar-menu-item {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 24px;
+        &.topbar-menu {
+            color: $color_black1;
+            text-decoration: none;
+          }
+          &.topbar-menu-right {
+            color: $color_black1;
+            text-decoration: none;
+            float: right;
+            margin-right: 20px;
+            .dropdown {
+              position: relative;
+              bottom: 5px;
+            }
+              .dropdown-content {
+                display: none;
+                position: absolute;
+                right: 0;
+                text-align: left;
+                padding: 10px;
+                background-color: #f9f9f9;
+                width: 300px;
+                min-width: 200px;
+                box-shadow: $color_shadow;
+                border-radius: 5px;
+                z-index: 1;
+                height: 100px;
+                .firstname {
+                  margin-right: 15px;
+                }
+              }
+              .dropdown-content {
+                a {
+                  float: none;
+                  color: black;
+                  padding: 12px 16px;
+                  text-decoration: none;
+                  display: block;
+                  text-align: left;
+                }
+              }
+          }
+          &.topbar-menu-right:hover {
+            .dropdown-content {
+              display: block;
+            }
+          }
+          &.topbar-menu-active {
+            color: $color_white;
+          }
+          ::before {
+            font-size: 20px;
+            margin-right: 10px;
+          }
+    }
+  }
+
+  

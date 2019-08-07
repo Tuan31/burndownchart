@@ -1,0 +1,58 @@
+@import '../../variable';
+
+.dashboard { 
+  margin: 50px;
+    .dashboard-row {
+        margin-top: 50px;
+        font-size: 24px;
+        .dashboard-box {
+              box-shadow: $dashboard_box_shadow;
+              border-radius: 20px;
+              padding: 30px;
+              margin-bottom: 40px;
+              height: auto;
+              min-height: 300px;
+              .total-score {
+                font-size: 100px;
+                text-align: center;
+              }
+              .score-date {
+                text-align: center;
+              }
+              .form-score {
+                display: flex;
+                justify-content: center;
+                .input-form {
+                  margin-top: 25px;
+                  width: 314px;
+                  height: 42px;
+                }
+              }
+              .burndowndate {
+                font-size: 28px;
+                text-align: center;
+                margin: 20px;
+              }
+              .score-btn {
+                float: right;
+                margin-top: 25px;
+              }
+        }
+    }
+    .title {
+      text-align: center;
+      font-weight: bold;
+      font-size: 28px;
+    }
+    .chart {
+        display: flex;
+        justify-content: center;
+    }
+
+    @media screen and (max-width: 600px) {
+      .dashboard-box {
+        min-width: 500px;
+      }
+    }
+}
+  

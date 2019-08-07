@@ -1,0 +1,43 @@
+@import '../../variable';
+@import 'react-datepicker/src/stylesheets/datepicker.scss';
+
+
+.burndown {
+    display: flex;
+    justify-content: center;
+    font-family: $font-family-trirong;
+    font-size: 28px;
+    color: $color_blue1;
+    top: 25px;
+    margin: 50px;
+    .burndown-row {
+        .burndown-box {
+                box-shadow: $dashboard_box_shadow;
+                border-radius: 20px;
+                padding: 30px;
+                margin-bottom: 40px;
+                width: 450px;
+                height: 100%;
+                .input-form {
+                    height: 50px;
+                }
+                .submit-btn {
+                    margin: 25px;
+                    float: right;
+                }
+                .form-control {
+                    width: 384px;
+                }
+                .calendar {
+                    .react-datepicker-wrapper {
+                        .react-datepicker__input-container {
+                            &.ipnut {
+                                width: 500px;
+                            }
+                        }
+                    }
+                    
+                }
+        }
+    }
+}
