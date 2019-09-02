@@ -24,11 +24,9 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      startDate: '',
       row: [],
       store_data: [],
       redirect: false,
-      remainScore: localStorage.getItem('remainScore'),
     };
     props.dispatch(GetCharts());
   }
@@ -52,7 +50,7 @@ class Dashboard extends Component {
     e.preventDefault();
 
     const date = e.target.datename.value;
-    const dailyScore = e.target.today_score.value;
+    const dailyScore = e.target.dailyscore.value;
 
     const new_date = new Date(date);
     const start = new Date(startdate);
@@ -93,7 +91,6 @@ class Dashboard extends Component {
         Sum = Sum - item.score;
         return item;
       });
-      
       let score = 0;
       let storeData = {
         'date': start.toISOString(),
@@ -213,12 +210,12 @@ class Dashboard extends Component {
                     minDate={new Date(startdate)}
                     maxDate={new Date(enddate)}
                     isClearable={true}  
-                    placeholderText="Select date"
+                    placeholderText="select date"
                   />           
                 </div>
                 <div className="form-score">
                   <FormGroup>
-                    <Input className="input-form" type="number" min="0" max={localStorage.getItem('remainScore')} name="today_score" />
+                    <Input className="input-form" type="number" min="0" max={localStorage.getItem('remainScore')} name="dailyscore" />
                     <Button type="submit" outline color="secondary" className="score-btn">Submit</Button>
                   </FormGroup>
                 </div>

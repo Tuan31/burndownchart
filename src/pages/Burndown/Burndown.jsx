@@ -60,7 +60,7 @@ class Burndown extends Component {
                     endDate={this.state.endDate}
                     onChange={this.handleChangeStart}
                     isClearable={true}
-                    placeholderText="Select start date"
+                    placeholderText="select start date"
                   />
                 </FormGroup>
                 <FormGroup>
@@ -74,7 +74,7 @@ class Burndown extends Component {
                     onChange={this.handleChangeEnd}
                     minDate={this.state.startDate}
                     isClearable={true}
-                    placeholderText="Select end date"
+                    placeholderText="select end date"
                   />
                 </FormGroup>
                 <FormGroup>
