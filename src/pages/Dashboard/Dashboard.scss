@@ -1,6 +1,6 @@
-@import '../../variable';
+@import '../../_variable';
 
-.dashboard { 
+.Dashboard { 
   margin: 50px;
     .dashboard-row {
         margin-top: 50px;
@@ -13,29 +13,39 @@
               height: auto;
               min-height: 300px;
               .total-score {
-                font-size: 100px;
+                font-size: 50px;
                 text-align: center;
+                color: $color_blue1;
               }
               .score-date {
+                margin-top: 24px;
                 text-align: center;
+                color: $color_blue1;
               }
               .form-score {
                 display: flex;
                 justify-content: center;
                 .input-form {
                   margin-top: 25px;
-                  width: 314px;
+                  width: 250px;
                   height: 42px;
                 }
               }
               .burndowndate {
-                font-size: 28px;
+                font-size: 24px;
                 text-align: center;
                 margin: 20px;
+                color: $color_blue1;
               }
               .score-btn {
                 float: right;
                 margin-top: 25px;
+                background-color: $btn_color;
+              }
+              .react-datepicker__input-container {
+                input {
+                  width: 250px;
+                }
               }
         }
     }
@@ -46,13 +56,40 @@
     }
     .chart {
         display: flex;
-        justify-content: center;
+        justify-content: center;  
     }
 
-    @media screen and (max-width: 600px) {
+    .finish-btn {
+      display: flex;
+      justify-content: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+  .Dashboard {
+    .dashboard-row {
       .dashboard-box {
-        min-width: 500px;
+        font-size: 16px;
+        width: 300px;
+        min-height: 100px;
+        .total-score {
+          font-size: 28px;
+        }
+        .burndowndate {
+          font-size: 16px;
+        }
+        .form-score {
+          .input-form {
+            max-width: 100px;
+          }
+        }
+        .react-datepicker__input-container {
+          input {
+            max-width: 100px;
+          }
+        }
       }
     }
+  }
 }
   

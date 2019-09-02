@@ -1,8 +1,8 @@
-@import '../../variable';
+@import '../../_variable';
 
 
 .topnav {
-    background-color: $color_yellow;
+    background-color: $topbar_color;
     height: 62px;
     .topbar-menu-item {
         float: left;

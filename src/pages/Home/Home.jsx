@@ -7,7 +7,7 @@ import { Row, Col } from 'reactstrap';
 import './Home.scss';
 import { fetchGetUsers } from '../../actions';
 
-//const isVisited = localStorage.getItem('alreadyVisited');
+const isVisited = localStorage.getItem('alreadyVisited');
 
 class Home extends Component {
   constructor(props) {
@@ -23,12 +23,12 @@ class Home extends Component {
     props.dispatch(fetchGetUsers());
   }
 
-  // componentWillMount() {
-  //     if (isVisited === undefined || isVisited === null) {
-  //         this.setState({ redirect: true });
-  //         this.setState({ isVisited: localStorage.setItem('alreadyVisited', 1)})
-  //     }    
-  // }
+  UNSAFE_componentWillMount() {
+    if (isVisited === undefined || isVisited === null) {
+      this.setState({ redirect: true });
+      this.setState({ isVisited: localStorage.setItem('alreadyVisited', 1) });
+    }    
+  }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
     const { getUsers } = this.props;
@@ -43,15 +43,15 @@ class Home extends Component {
   }
 
   render() {
-    const { redirect, isVisited, firstname, email, lastname } = this.state;
-    if (redirect && isVisited !== null) {
+    const { redirect, firstname, email, lastname } = this.state;
+    if (redirect) {
       return <Redirect to="/welcome" />;
     }
     return (
       <div>
         <div className="home">
           <div>
-            <Row className="profile-row" key={Math.random()}>
+            <Row className="profile-row">
               <Col className="col col-12 col-sm-12">
                 <div className="profile-box">
                   <div>Firstname : {firstname}</div>
@@ -69,7 +69,9 @@ class Home extends Component {
 
 Home.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  getUsers: PropTypes.shape({}),
+  getUsers: PropTypes.shape({
+    data: PropTypes.any,
+  }),
 };
 
 const mapStateToProps = (state) => {

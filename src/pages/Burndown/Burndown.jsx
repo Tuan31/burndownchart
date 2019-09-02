@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Form, FormGroup, Input, Label, Row, Col, Button } from 'reactstrap';
-//import { DateRange } from 'react-date-range';
-//import DayPicker, { DateUtils } from 'react-day-picker';
 import DatePicker from 'react-datepicker';
-
 
 import './Burndown.scss';
 
@@ -21,37 +18,28 @@ class Burndown extends Component {
   handleSubmit = (e) => {
     localStorage.setItem('totalScore', e.target.total_score.value);
     localStorage.setItem('sprintName', e.target.sprintname.value);
+    localStorage.setItem('remainScore', e.target.total_score.value);
+    localStorage.setItem('startDate', e.target.startdate.value);
+    localStorage.setItem('endDate', e.target.enddate.value);
   }
-
 
   handleChange = value => this.setState({ value })
 
-  // handleSelect = range => {
-  //   console.log('>>>>>', range);
-  //   //this.setState({ range });
-  // }
-
-  // handleDayClick(day) {
-  //   const range = DateUtils.addDayToRange(day, this.state);
-  //   console.log('>>>>', range);
-  //   //this.setState(range);
-  // }
-
   handleChangeStart = (startDate) => {
-    this.setState({ startDate: startDate });
-    localStorage.setItem('startDate', startDate);
+    this.setState({ startDate });
   }
 
-  handleChangeEnd = (endDate) => {
-    this.setState({ endDate: endDate });
-    localStorage.setItem('endDate', endDate);
+  handleChangeEnd = endDate => {
+    this.setState({ endDate });
   }
+
   render() {
     const { redirect } = this.state;
 
     if (redirect) {
       return <Redirect to="/dashboard" />;
     }
+    
     return (
       <div className="burndown">
         <Row className="burndown-row">
@@ -68,6 +56,7 @@ class Burndown extends Component {
                     selected={this.state.startDate}
                     selectsStart
                     startDate={this.state.startDate}
+                    name="startdate"
                     endDate={this.state.endDate}
                     onChange={this.handleChangeStart}
                     isClearable={true}
@@ -81,6 +70,7 @@ class Burndown extends Component {
                     selectsEnd
                     startDate={this.state.startDate}
                     endDate={this.state.endDate}
+                    name="enddate"
                     onChange={this.handleChangeEnd}
                     minDate={this.state.startDate}
                     isClearable={true}
@@ -89,7 +79,7 @@ class Burndown extends Component {
                 </FormGroup>
                 <FormGroup>
                   <Label className="form-label">Total Score:</Label>
-                  <Input className="input-form" type="text" name="total_score" />
+                  <Input className="input-form" type="number" min="0" name="total_score" />
                 </FormGroup>
                 <Button type="submit" outline color="secondary" className="submit-btn">Submit</Button>
               </Form> 
