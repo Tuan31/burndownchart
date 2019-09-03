@@ -1,7 +1,7 @@
 export const GET_CHART_SUCCESS = 'GET_CHART_SUCCESS';
 export const GET_CHART_FAILURE = 'GET_CHART_FAILURE';
 
-export function GetCharts() {
+export function fetchGetCharts() {
   return async dispatch => {
     try {
       const data = JSON.parse(localStorage['row2']);

@@ -8,7 +8,7 @@ import DatePicker from 'react-datepicker';
 
 import './Dashboard.scss';
 import { formatDate, formatMonth, formatYear, monthEN2TH } from '../../helper';
-import { GetCharts } from '../../actions';
+import { fetchGetCharts } from '../../actions';
 
 const totalscore = localStorage.getItem('totalScore');
 const startdate = localStorage.getItem('startDate');
@@ -28,7 +28,7 @@ class Dashboard extends Component {
       store_data: [],
       redirect: false,
     };
-    props.dispatch(GetCharts());
+    props.dispatch(fetchGetCharts());
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -111,7 +111,7 @@ class Dashboard extends Component {
       localStorage['row2'] = JSON.stringify(row2);
       localStorage.setItem('remainScore', Sum);
     }
-    this.props.dispatch(GetCharts());
+    this.props.dispatch(fetchGetCharts());
   }
 
   handleSelectDate = selectDate => {
