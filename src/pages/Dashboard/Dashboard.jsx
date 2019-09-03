@@ -49,7 +49,7 @@ class Dashboard extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    const date = e.target.datename.value;
+    const date = e.target.date.value;
     const dailyScore = e.target.dailyscore.value;
 
     const new_date = new Date(date);
@@ -63,7 +63,6 @@ class Dashboard extends Component {
       'date': new_date.toISOString(),
       'idealData': '-',
       'score': score,
-      'totalscore': totalscore,
       'sum': totalscore - score,
     };
   
@@ -96,7 +95,6 @@ class Dashboard extends Component {
         'date': start.toISOString(),
         'idealData': '-',
         'score': score,
-        'totalscore': totalscore,
         'sum': Sum,
       };
 
@@ -112,12 +110,6 @@ class Dashboard extends Component {
       row2.sort((a, b) => (a.date > b.date) ? 1 : -1 );
       localStorage['row2'] = JSON.stringify(row2);
       localStorage.setItem('remainScore', Sum);
-
-      row2.map(item => {
-        item.sum = Sum - item.score;
-        Sum = Sum - item.score;
-        return item;
-      });
     }
     this.props.dispatch(GetCharts());
   }
@@ -129,13 +121,10 @@ class Dashboard extends Component {
   handleClick = () => {
     localStorage.removeItem('row2');
     localStorage.removeItem('remainScore');
-    localStorage.removeItem('scoreDate');
     localStorage.removeItem('totalScore');
     localStorage.removeItem('startDate');
     localStorage.removeItem('endDate');
-    localStorage.removeItem('todayScore');
     localStorage.removeItem('sprintName');
-    localStorage.removeItem('lastScoreDate');
   
     window.location.reload();
   }
@@ -206,7 +195,7 @@ class Dashboard extends Component {
                     selectsStart
                     startDate={this.state.selectDate}
                     onChange={this.handleSelectDate}
-                    name="datename"
+                    name="date"
                     minDate={new Date(startdate)}
                     maxDate={new Date(enddate)}
                     isClearable={true}  

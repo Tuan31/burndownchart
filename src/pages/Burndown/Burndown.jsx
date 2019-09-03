@@ -23,8 +23,6 @@ class Burndown extends Component {
     localStorage.setItem('endDate', e.target.enddate.value);
   }
 
-  handleChange = value => this.setState({ value })
-
   handleChangeStart = (startDate) => {
     this.setState({ startDate });
   }
