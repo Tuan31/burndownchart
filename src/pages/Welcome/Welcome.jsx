@@ -7,7 +7,7 @@ class Welcome extends Component {
 
   render() {
     return (
-      <div className="welcome">
+      <div className="Welcome">
         <Row className="welcome-row">
           <Col className="col col-12 col-sm-12">
             <div className="welcome-box">

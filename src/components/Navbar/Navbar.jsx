@@ -33,7 +33,7 @@ class Topbar extends Component {
   render() {
     const { firstname, lastname, email, avatar } = this.state;
     return (
-      <div className="topnav">
+      <div className="Topnav">
         <NavLink className="topbar-menu-item topbar-menu" activeClassName="topbar-menu-active" to="/home">
           <span className="fas fa-home" />
           <span>Home</span>
@@ -62,7 +62,9 @@ class Topbar extends Component {
 
 Topbar.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  getUsers: PropTypes.shape({}),
+  getUsers: PropTypes.shape({
+    data: PropTypes.any,
+  }),
 };
 
 const mapStateToProps = (state) => {

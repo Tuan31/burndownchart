@@ -39,7 +39,7 @@ class Burndown extends Component {
     }
     
     return (
-      <div className="burndown">
+      <div className="Burndown">
         <Row className="burndown-row">
           <Col className="col col-12 col-sm-12">
             <div className="burndown-box">

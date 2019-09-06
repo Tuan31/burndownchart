@@ -47,21 +47,18 @@ class Home extends Component {
     if (redirect) {
       return <Redirect to="/welcome" />;
     }
+
     return (
-      <div>
-        <div className="home">
-          <div>
-            <Row className="profile-row">
-              <Col className="col col-12 col-sm-12">
-                <div className="profile-box">
-                  <div>Firstname : {firstname}</div>
-                  <div>Lastname : {lastname}</div>
-                  <div>Email : {email}</div>
-                </div>
-              </Col>
-            </Row>
-          </div>
-        </div>
+      <div className="Home">
+        <Row className="profile-row">
+          <Col className="col col-12 col-sm-12">
+            <div className="profile-box">
+              <div>Firstname : {firstname}</div>
+              <div>Lastname : {lastname}</div>
+              <div>Email : {email}</div>
+            </div>
+          </Col>
+        </Row>
       </div>
     );
   }

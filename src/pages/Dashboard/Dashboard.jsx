@@ -24,10 +24,11 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      row: [],
+      row: JSON.parse(localStorage.row),
       store_data: [],
       redirect: false,
     };
+
     props.dispatch(fetchGetCharts());
   }
 
@@ -54,36 +55,37 @@ class Dashboard extends Component {
 
     const new_date = new Date(date);
     const start = new Date(startdate);
-    
+
     let row2 = [];
     row2 = JSON.parse(localStorage.row2 || 'null') || [];
     let score = dailyScore;
-
+  
     let storeData = {
       'date': new_date.toISOString(),
       'idealData': '-',
       'score': score,
       'sum': totalscore - score,
     };
-  
-    function pushToArray(arr, obj) {
+    
+    const updateArr = function pushToArray(arr, obj) {
       const index = arr.findIndex((e) => e.date === obj.date);
       if (index === -1) {
         arr.push(obj);
       } else {
         arr[index] = obj;
       }
-    }
-  
-    pushToArray(row2, storeData);
-      
+    };
+    
+    updateArr(row2, storeData);
+        
     row2.sort((a, b) => (new Date(a.date) > new Date(b.date)) ? 1 : -1 );
     localStorage['row2'] = JSON.stringify(row2);
+
 
     for (;start <= new_date; start.setDate(start.getDate()+1)) {
       let row2 = [];
       row2 = JSON.parse(localStorage.row2 || 'null') || [];
-
+  
       let Sum = totalscore;
       row2.map(item => {
         item.sum = Sum - item.score;
@@ -97,16 +99,16 @@ class Dashboard extends Component {
         'score': score,
         'sum': Sum,
       };
-
+  
       const updateArr = function pushToArray(arr, obj) {
         const index = arr.findIndex((e) => e.date === obj.date);
         if (index === -1) {
           arr.push(obj);
         }
       };
-       
+         
       updateArr(row2, storeData);
-
+  
       row2.sort((a, b) => (a.date > b.date) ? 1 : -1 );
       localStorage['row2'] = JSON.stringify(row2);
       localStorage.setItem('remainScore', Sum);
@@ -147,14 +149,13 @@ class Dashboard extends Component {
       { 'date': newStartDate, 'idealData': totalscore, 'score': '-' },
       { 'date': newEndDate, 'idealData': 0, 'score': '-' },
     ];
-  
     const rowData = [];
     row.forEach(ele => {
       rowData.push([
         ele.date, ele.idealData, ele.score,
       ]);
     });
-
+    
     const Data = [columns, ...rowData, ...store_data];
 
     return (
@@ -222,12 +223,13 @@ class Dashboard extends Component {
             data={Data}
             options={{
               title: localStorage.getItem('sprintName'),
+              pointSize: 5,
               hAxis: {
-                title: 'Day',
+                title: 'Days',
                 format: 'dd/MM',
               },
               vAxis: {
-                title: 'Score',
+                title: 'Scores',
               },
             }}
             rootProps={{ 'data-testid': '1' }}
