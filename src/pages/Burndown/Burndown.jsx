@@ -79,7 +79,7 @@ class Burndown extends Component {
                   <Label className="form-label">Total Score:</Label>
                   <Input className="input-form" type="number" min="0" name="total_score" />
                 </FormGroup>
-                <Button type="submit" outline color="secondary" className="submit-btn">Submit</Button>
+                <Button type="submit" color="success" className="submit-btn">Submit</Button>
               </Form> 
             </div>
           </Col>

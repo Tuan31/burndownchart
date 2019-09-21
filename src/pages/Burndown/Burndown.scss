@@ -24,11 +24,12 @@
                 .submit-btn {
                     margin: 25px;
                     float: right;
-                    background-color: $btn_color;
-                    //background-color: $color_green1;
+                    background-color: $color_green1;
                 }
                 .form-control {
                     width: 384px;
+                    border: 0.5px solid rgb(160, 159, 159);
+                    border-radius: 0;
                 }
                 .calendar {
                     .react-datepicker-wrapper {

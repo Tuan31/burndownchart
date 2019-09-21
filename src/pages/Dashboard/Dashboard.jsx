@@ -24,7 +24,7 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      row: JSON.parse(localStorage.row),
+      row: [],
       store_data: [],
       redirect: false,
     };
@@ -164,7 +164,7 @@ class Dashboard extends Component {
           <Col className="col col-12 col-sm-12 col-lg-4">
             <div className="dashboard-box">
               Sprint Period
-              <div className="burndowndate">เริ่ม : {(startdate === null || undefined) ? '-' : startDate}</div>
+              <div className="burndowndate">เริ่มต้น : {(startdate === null || undefined) ? '-' : startDate}</div>
               <div className="burndowndate">สิ้นสุด : {(enddate === null || undefined) ? '-' : endDate}</div>
             </div>
           </Col>
@@ -206,7 +206,7 @@ class Dashboard extends Component {
                 <div className="form-score">
                   <FormGroup>
                     <Input className="input-form" type="number" min="0" max={localStorage.getItem('remainScore')} name="dailyscore" />
-                    <Button type="submit" outline color="secondary" className="score-btn">Submit</Button>
+                    <Button type="submit" color="success" className="score-btn">Submit</Button>
                   </FormGroup>
                 </div>
               </Form>
@@ -229,7 +229,7 @@ class Dashboard extends Component {
                 format: 'dd/MM',
               },
               vAxis: {
-                title: 'Scores',
+                title: 'Score',
               },
             }}
             rootProps={{ 'data-testid': '1' }}

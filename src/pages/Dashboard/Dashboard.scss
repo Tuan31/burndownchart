@@ -29,6 +29,8 @@
                   margin-top: 25px;
                   width: 250px;
                   height: 42px;
+                  border: 0.5px solid rgb(163, 162, 162);
+                  border-radius: 0;
                 }
               }
               .burndowndate {
@@ -40,8 +42,7 @@
               .score-btn {
                 float: right;
                 margin-top: 20px;
-                background-color: $btn_color;
-                // background-color: $color_green1;
+                background-color: $color_green1;
               }
               .react-datepicker__input-container {
                 input {
